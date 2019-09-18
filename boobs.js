@@ -93,6 +93,7 @@
             listenImageLoad()
             listenImageSelect()
             listenClassLoad()
+            listenNewClass()
             listenClassSelect()
             listenBboxLoad()
             listenBboxSave()
@@ -778,6 +779,28 @@
                 }
             }
         })
+    }
+
+    const listenNewClass = () => {
+        const newClassButtonElement = document.getElementById("newClassButton")
+
+        newClassButtonElement.addEventListener("click", () => {
+
+            //Get value from input
+            let newClass = document.getElementById("newClass").value
+
+            const classList = document.getElementById("classList")
+
+            const option = document.createElement("option")
+            option.value = newClass
+            option.innerHTML = newClass
+
+            classList.appendChild(option)
+
+            //Clear input
+            document.getElementById("newClass").value = ''
+        })
+
     }
 
     const resetClassList = () => {
