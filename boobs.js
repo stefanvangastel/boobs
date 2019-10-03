@@ -94,6 +94,7 @@
             listenImageSelect()
             listenClassLoad()
             listenNewClass()
+            listendeleteClass()
             listenClassSelect()
             listenBboxLoad()
             listenBboxSave()
@@ -735,7 +736,7 @@
 
                 const nameParts = files[0].name.split(".")
 
-                if (nameParts[nameParts.length - 1] === "txt") {
+                if (nameParts[nameParts.length - 1] === "txt" || nameParts[nameParts.length - 1] === "names") {
                     const reader = new FileReader()
 
                     reader.addEventListener("load", () => {
@@ -799,6 +800,18 @@
 
             //Clear input
             document.getElementById("newClass").value = ''
+        })
+
+    }
+
+    const listendeleteClass = () => {
+        const deleteClassButtonElement = document.getElementById("deleteClassButton")
+
+        deleteClassButtonElement.addEventListener("click", () => {
+
+            //Get selected class
+            currentClass = classList.options[classList.selectedIndex]
+            console.log(currentClass)
         })
 
     }
